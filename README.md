@@ -1,7 +1,7 @@
 # react-datetime
 
-[![Build Status](https://secure.travis-ci.org/arqex/react-datetime.svg)](https://travis-ci.org/arqex/react-datetime)
-[![npm version](https://badge.fury.io/js/react-datetime.svg)](http://badge.fury.io/js/react-datetime)
+[![Build Status](https://secure.travis-ci.org/yuan9090/react-datetime.svg)](https://travis-ci.org/yuan9090/react-datetime)
+[![npm version](https://badge.fury.io/js/@iftek/react-datetime.svg)](http://badge.fury.io/js/@iftek/react-datetime)
 
 A date and time picker in the same React.js component. It can be used as a datepicker, timepicker or both at the same time. It is **highly customizable** and it even allows to edit date's milliseconds.
 
@@ -13,12 +13,12 @@ A date and time picker in the same React.js component. It can be used as a datep
 
 Install using npm:
 ```sh
-npm install --save react-datetime
+npm install --save @iftek/react-datetime
 ```
 
 Install using yarn:
 ```sh
-yarn add react-datetime
+yarn add @iftek/react-datetime
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ yarn add react-datetime
 
 ```js
 // Import the library
-import Datetime from 'react-datetime';
+import Datetime from '@iftek/react-datetime';
 
 // return it from your components
 return <Datetime />;
@@ -36,10 +36,10 @@ return <Datetime />;
 
 Do you want more examples? [Have a look at our resources gallery](resources.md).
 
-**Don't forget to add the [CSS stylesheet](https://github.com/arqex/react-datetime/blob/master/css/react-datetime.css) to make it work out of the box.**. You only need to do this once in your app:
+**Don't forget to add the [CSS stylesheet](https://github.com/yuan9090/react-datetime/blob/master/css/react-datetime.css) to make it work out of the box.**. You only need to do this once in your app:
 
 ```js
-import "react-datetime/css/react-datetime.css";
+import "@iftek/react-datetime/css/react-datetime.css";
 ```
 
 ## API
@@ -75,10 +75,11 @@ Below we have all the props that we can use with the `<DateTime>` component. The
 | **renderDay** | `function` | `DOM.td(day)` | Customize the way that the days are shown in the daypicker. The accepted function has the `selectedDate`, the current date and the default calculated `props` for the cell, and must return a React component. See [Customize the Datepicker Appearance](#customize-the-datepicker-appearance). |
 | **renderMonth** | `function` | `DOM.td(month)` | Customize the way that the months are shown in the monthpicker. The accepted function has the `selectedDate`, the current date and the default calculated `props` for the cell, the `month` and the `year` to be shown, and must return a React component. See [Customize the Datepicker Appearance](#customize-the-datepicker-appearance). |
 | **renderYear** | `function` | `DOM.td(year)` | Customize the way that the years are shown in the year picker. The accepted function has the `selectedDate`, the current date and the default calculated `props` for the cell, the `year` to be shown, and must return a React component. See [Customize the Datepicker Appearance](#customize-the-datepicker-appearance). |
+| startDay | `number` | `undefined` | The day that week begins. |
 | **strictParsing** | `boolean` | `true` | Whether to use Moment.js's [strict parsing](http://momentjs.com/docs/#/parsing/string-format/) when parsing input.
+| **timeConstraints** | `object` | `null` | Add some constraints to the timepicker. It accepts an `object` with the format `{ hours: { min: 9, max: 15, step: 2 }}`, this example means the hours can't be lower than `9` and higher than `15`, and it will change adding or subtracting `2` hours everytime the buttons are clicked. The constraints can be added to the `hours`, `minutes`, `seconds` and `milliseconds`.
 | **closeOnSelect** | `boolean` | `false` | When `true`, once the day has been selected, the datepicker will be automatically closed.
 | **closeOnTab** | `boolean` | `true` | When `true` and the input is focused, pressing the `tab` key will close the datepicker.
-| **timeConstraints** | `object` | `null` | Add some constraints to the timepicker. It accepts an `object` with the format `{ hours: { min: 9, max: 15, step: 2 }}`, this example means the hours can't be lower than `9` and higher than `15`, and it will change adding or subtracting `2` hours everytime the buttons are clicked. The constraints can be added to the `hours`, `minutes`, `seconds` and `milliseconds`.
 | **closeOnClickOutside** | `boolean` | `true` | When the calendar is open and `closeOnClickOutside` is `true` (its default value), clickin outside of the calendar or input closes the calendar. If `false` the calendar stays open.
 
 ## Imperative API

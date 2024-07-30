@@ -1,11 +1,11 @@
 {
-  "name": "react-datetime",
-  "version": "3.1.0",
+  "name": "@iftek/react-datetime",
+  "version": "3.3.0",
   "description": "A lightweight but complete datetime picker React.js component",
-  "homepage": "https://github.com/arqex/react-datetime",
+  "homepage": "https://github.com/yuan9090/react-datetime",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arqex/react-datetime"
+    "url": "https://github.com/yuan9090/react-datetime"
   },
   "main": "./dist/react-datetime.cjs.js",
   "typings": "./typings/DateTime.d.ts",
@@ -34,7 +34,7 @@
     "datetimepicker",
     "datetime"
   ],
-  "author": "Javier Marquez",
+  "author": "yuan9090",
   "license": "MIT",
   "peerDependencies": {
     "moment": "^2.16.0",
