@@ -40,8 +40,9 @@ export default class DaysView extends React.Component {
 	}
 
 	renderDayHeaders() {
+		const startDay = this.props.startDay;
 		const locale = this.props.viewDate.localeData();
-		let dayItems = getDaysOfWeek( locale ).map( (day, index) => (
+		let dayItems = getDaysOfWeek( locale, startDay ).map( (day, index) => (
 			<th key={ day + index } className="dow">{ day }</th>
 		));
 
@@ -54,6 +55,7 @@ export default class DaysView extends React.Component {
 
 	renderDays() {
 		const date = this.props.viewDate;
+		const startDay = this.props.startDay;
 		const startOfMonth = date.clone().startOf('month');
 		const endOfMonth = date.clone().endOf('month');
 
@@ -62,8 +64,11 @@ export default class DaysView extends React.Component {
 		let rows = [[], [], [], [], [], []];
 
 		let startDate = date.clone().subtract( 1, 'months');
-		startDate.date( startDate.daysInMonth() ).startOf('week');
-
+		startDate.date( startDate.daysInMonth() ).startOf('week'); 
+		if (startDay !== undefined && startDay !== startDate.day()){
+			startDate.add( startDay - startDate.day(), 'd');
+		}
+		
 		let endDate = startDate.clone().add( 42, 'd' );
 		let i = 0;
 
@@ -147,8 +152,8 @@ function getRow( rows, day ) {
  * depending on the current locale
  * @return {array} A list with the shortname of the days
  */
-function getDaysOfWeek( locale ) {
-	const first = locale.firstDayOfWeek();
+function getDaysOfWeek( locale, startDay ) {
+	const first = startDay !== undefined ? startDay: locale.firstDayOfWeek();
 	let dow = [];
 	let i = 0;
 

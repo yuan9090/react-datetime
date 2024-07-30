@@ -42,6 +42,7 @@ export default class Datetime extends React.Component {
 		timeConstraints: TYPES.object,
 		isValidDate: TYPES.func,
 		open: TYPES.bool,
+		startDay: 0 | 1 | 2 | 3 | 4 | 5 | 6,
 		strictParsing: TYPES.bool,
 		closeOnSelect: TYPES.bool,
 		closeOnTab: TYPES.bool,
@@ -156,9 +157,10 @@ export default class Datetime extends React.Component {
 				return <MonthsView {...viewProps} />;
 			
 			case viewModes.DAYS:
-				// { viewDate, selectedDate, renderDay, isValidDate, navigate, showView, updateDate, timeFormat 
+				// { viewDate, selectedDate, renderDay, isValidDate, navigate, showView, updateDate, timeFormat, startDay }
 				viewProps.renderDay = props.renderDay;
 				viewProps.timeFormat = this.getFormat('time');
+				viewProps.startDay = props.startDay;
 				return <DaysView {...viewProps} />;
 			
 			default:

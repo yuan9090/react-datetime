@@ -183,13 +183,13 @@ declare namespace ReactDatetimeClass {
          */
         renderInput?: (props: any, openCalendar: Function, closeCalendar: Function) => JSX.Element;
         /*
+         The day that week begins.
+        */
+        startDay?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+        /*
          Whether to use moment's strict parsing when parsing input.
          */
         strictParsing?: boolean;
-        /*
-         When true, once the day has been selected, the react-datetime will be automatically closed.
-         */
-        closeOnSelect?: boolean;
         /*
          Allow to add some constraints to the time selector. It accepts an object with the format
          {hours:{ min: 9, max: 15, step:2}} so the hours can't be lower than 9 or higher than 15, and
@@ -197,6 +197,10 @@ declare namespace ReactDatetimeClass {
          can be added to the hours, minutes, seconds and milliseconds.
          */
         timeConstraints?: TimeConstraints;
+        /*
+         When true, once the day has been selected, the react-datetime will be automatically closed.
+         */
+         closeOnSelect?: boolean;
         /*
          When true the picker get closed when clicking outside of the calendar or the input box. When false, it stays open.
          */
